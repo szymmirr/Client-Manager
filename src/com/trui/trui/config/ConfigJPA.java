@@ -14,7 +14,7 @@ public class ConfigJPA {
 	@Bean
 	public LocalEntityManagerFactoryBean entityManagerFactory() {
 		LocalEntityManagerFactoryBean factoryBean = new LocalEntityManagerFactoryBean();
-		factoryBean.setPersistenceUnitName("ClientsDB");
+		factoryBean.setPersistenceUnitName("ClientDB");
 
 		return factoryBean;
 	}

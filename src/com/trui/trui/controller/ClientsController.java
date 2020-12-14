@@ -9,39 +9,39 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.trui.trui.dao.ClientsService;
-import com.trui.trui.model.Clients;
+import com.trui.trui.model.Client;
 
 @Controller
 public class ClientsController {
 
 	@Autowired
-	private ClientsService<Clients> service;
+	private ClientsService<Client> service;
 
 	@RequestMapping("/")
 	public ModelAndView home() {
 		ModelAndView modelView = new ModelAndView("index");
-		List<Clients> listClients = service.listAll();
+		List<Client> listClients = service.listAll();
 		modelView.addObject("listClients", listClients);
 		return modelView;
 	}
 
 	@RequestMapping("/new")
 	public String createClient(Map<String, Object> model) {
-		model.put("clients", new Clients());
+		model.put("client", new Client());
 		return "create_client";
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveClient(@ModelAttribute("clients") Clients clients) {
-		service.save(clients);
+	public String saveClient(@ModelAttribute("client") Client client) {
+		service.save(client);
 		return "redirect:/";
 	}
 
 	@RequestMapping("/edit")
 	public ModelAndView editClientForm(@RequestParam Integer id) {
 		ModelAndView modelView = new ModelAndView("edit_client");
-		Clients clients = (Clients) service.get(id);
-		modelView.addObject("clients", clients);
+		Client client = (Client) service.get(id);
+		modelView.addObject("client", client);
 		return modelView;
 	}
 

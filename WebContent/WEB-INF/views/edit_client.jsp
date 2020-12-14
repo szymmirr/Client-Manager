@@ -12,11 +12,8 @@
 		class="col-lg-4 col-md-4 col-sm-4 container justify-content-center"
 		id="divi">
 		<h2>Edit client</h2>
-		<form:form action="save" method="post" modelAttribute="clients">
+		<form:form action="save" method="post" modelAttribute="client">
 			<div class="mb-3 input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">ID:</span>
-				</div>
 				<form:hidden path="id" class="form-control " />
 			</div>
 			<div class="mb-3 input-group">
@@ -34,9 +31,9 @@
 					<span class="input-group-text">Last name:</span>
 				</div>
 
-				<form:input path="last_name" type="text" class="form-control col-sm-10"
-					placeholder="Enter last name" aria-label="Enter last name"
-					aria-describedby="basic-addon2" />
+				<form:input path="last_name" type="text"
+					class="form-control col-sm-10" placeholder="Enter last name"
+					aria-label="Enter last name" aria-describedby="basic-addon2" />
 			</div>
 
 			<div class="mb-3 input-group">
@@ -49,7 +46,6 @@
 					aria-label="Enter passport number" aria-describedby="basic-addon2" />
 			</div>
 			<input type="submit" value="Submit">
-			<input type="button" value="Cancel">
 			<div class="form-group"></div>
 		</form:form>
 	</div>

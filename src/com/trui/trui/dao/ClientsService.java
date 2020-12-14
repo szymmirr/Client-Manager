@@ -4,29 +4,30 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.trui.trui.model.Clients;
+import com.trui.trui.model.Client;
 
 @Service
-public class ClientsService<clients> {
+public class ClientsService<client> {
 
 	@Autowired
-	private ClientsRepository clientsRepo;
+	private ClientsRepository clientRepo;
 
-	public List<clients> listAll() {
-		return (List<clients>) clientsRepo.findAll();
+	@SuppressWarnings("unchecked")
+	public List<client> listAll() {
+		return (List<client>) clientRepo.findAll();
 	}
 
-	public void save(Clients clients) {
-		clientsRepo.save(clients);
+	public void save(Client client) {
+		clientRepo.save(client);
 	}
 
 	public Object get(Integer id) {
-		Optional<Clients> result = clientsRepo.findById(id);
+		Optional<Client> result = clientRepo.findById(id);
 		return result.get();
 	}
 
 	public void delete(Integer id) {
-		clientsRepo.deleteById(id);
+		clientRepo.deleteById(id);
 	}
 
 }
