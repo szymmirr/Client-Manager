@@ -1,22 +1,33 @@
-name: Run Maven
-on: [push, pull_request]
+name: Build Maven App
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
 jobs:
-  maven:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  build:
+    runs-on: ubuntu-latest
     permissions: write
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
     - name: Setup Java JDK
       uses: actions/setup-java@v3
       with:
-        java-version: 17
         distribution: temurin
+        java-version: 17
         cache: maven
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
     - name: Submit Dependency Snapshot
       uses: advanced-security/maven-dependency-submission-action@v3.0.2
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: client-manager-artifact
+        path: build
