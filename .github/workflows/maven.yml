@@ -30,4 +30,4 @@ jobs:
         path: target/Trui-0.0.1-SNAPSHOT.war
 
     - name: Submit Dependency Snapshot
-      uses: advanced-security/maven-dependency-submission-action@v3.0.2
+      uses: advanced-security/maven-dependency-submission-action@v3.0.3
