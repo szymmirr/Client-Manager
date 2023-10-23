@@ -8,8 +8,8 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<spring.version>5.2.24.RELEASE</spring.version>
-		<hibernate.version>5.4.24.Final</hibernate.version>
+		<spring.version>6.0.13</spring.version>
+		<hibernate.version>6.1.4.Final</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>2.1.9.RELEASE</version>
+			<version>3.1.5.RELEASE</version>
 		</dependency>
 
 		<dependency>
