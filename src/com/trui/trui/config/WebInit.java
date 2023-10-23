@@ -10,6 +10,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebInit implements WebApplicationInitializer {
 
+	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext aplContext = new AnnotationConfigWebApplicationContext();
 		aplContext.register(webMVCconfig.class);
